@@ -20,12 +20,14 @@ type MovieModelInterface interface {
 
 type Models struct {
 	Movies MovieModelInterface
+	Tokens TokenModel
 	Users  UserModel
 }
 
 func InitModels(db *sql.DB) Models {
 	return Models{
 		Movies: MovieModel{DB: db},
+		Tokens: TokenModel{DB: db},
 		Users:  UserModel{DB: db},
 	}
 }
