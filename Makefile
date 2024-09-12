@@ -16,5 +16,7 @@ migrateup:
 migratedown:
 	migrate -path ./migrations -database "postgresql://root:secret@localhost:5432/api-template?sslmode=disable" -verbose down
 
+run:
+	go run ./cmd/api -cors-trusted-origins="http://localhost:9000"
 
-.PHONY: postgres createdb dropdb migration_file migrateup migratedown
+.PHONY: run postgres createdb dropdb migration_file migrateup migratedown
