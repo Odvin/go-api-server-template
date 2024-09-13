@@ -218,15 +218,3 @@ func (app *application) metrics(next http.Handler) http.Handler {
 		totalProcessingTimeMicroseconds.Add(duration)
 	})
 }
-
-func (app *application) exampleMiddleware(next http.Handler) http.Handler {
-
-	// Any code here will run only once, when we wrap something with the middleware.
-
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-
-		// Any code here will run for every request that the middleware handles.
-
-		next.ServeHTTP(w, r)
-	})
-}
